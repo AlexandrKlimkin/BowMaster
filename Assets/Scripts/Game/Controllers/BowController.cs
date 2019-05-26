@@ -20,9 +20,7 @@ public class BowController : MonoBehaviour
 
     public void Attack(Vector2 vector)
     {
-        //var arrow = Instantiate(SelectedArrow.Projectile) as GravityProjectile; //ToDo ObjectPool
-        var arrow = GameObjectPoolContainer.Pop<>()
-
+        var arrow = PoolManager.GetObject(SelectedArrow.Projectile.name).GetComponent<GravityProjectile>();
         var angle = Vector2.SignedAngle(Vector2.right, vector);
         var rotation = Quaternion.Euler(0, 0, angle);
         arrow.Speed = vector.magnitude * Strength;

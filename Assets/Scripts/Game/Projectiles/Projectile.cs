@@ -46,7 +46,7 @@ public abstract class Projectile : MonoBehaviour {
     }
 
     protected virtual void KillProjectile() {
-        this.gameObject.SetActive(false);
+        this.gameObject.GetComponent<PoolObject>().ReturnToPool();
         Initialized = false;
     }
 
