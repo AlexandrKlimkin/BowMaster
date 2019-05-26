@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 public class PressButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     public event Action OnPress;
+    public event Action OnRelease;
     private bool _Pressed;
 
     private void Update() {
@@ -20,6 +21,6 @@ public class PressButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
     public void OnPointerUp(PointerEventData eventData) {
         _Pressed = false;
+        OnRelease?.Invoke();
     }
-
 }

@@ -68,6 +68,8 @@ public class GravityProjectile : Projectile {
         this.transform.position = targetPosition;
         AllignDirection(_Velocity);
         _Velocity -= Gravity * Vector3.up * deltaTime;
+        if (transform.position.y < 0)
+            KillProjectile();
     }
 
     private void AllignDirection(Vector3 velocity) {

@@ -11,15 +11,21 @@ public class MovementButton : MonoBehaviour
     {
         _Button = GetComponent<PressButton>();
         _Button.OnPress += OnButtonPress;
+        _Button.OnRelease += OnButtonRelease;
     }
 
     private void OnButtonPress() {
         var direction = Direction == MovementDirection.Left ? -1f : 1f;
-        PlayerController.Instance.MovementController.Move(direction);
+        PlayerController.Instance.MovementController.Direction = direction;
+    }
+
+    private void OnButtonRelease() {
+        PlayerController.Instance.MovementController.Direction = 0;
     }
 
     private void OnDestroy() {
         _Button.OnPress -= OnButtonPress;
+        _Button.OnRelease -= OnButtonRelease;
     }
 
     public enum MovementDirection

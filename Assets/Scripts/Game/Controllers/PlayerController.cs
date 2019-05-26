@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class PlayerController : SingletonBehaviour<PlayerController>
 {
-    public Archer Unit { get; private set; }
+    public Unit Owner { get; private set; }
     public MovementController MovementController { get; private set; }
     public BowController AttackController { get; private set; }
 
     private Camera _MainCamera;
 
     protected override void Awake() {
-        Unit = GetComponent<Archer>();
+        Owner = GetComponent<Unit>();
         MovementController = GetComponent<MovementController>();
         AttackController = GetComponent<BowController>();
     }
@@ -31,8 +31,11 @@ public class PlayerController : SingletonBehaviour<PlayerController>
 //    }
 
     private void FireAtPoint(Vector2 point) {
-        var delta = _MainCamera.ScreenToWorldPoint(point) - Unit.BowController.FirePoint.position;
-        Unit.BowController.Attack(delta.normalized * 10f);
+        var bow = (RangeWeapon)Owner.AttackController.Weapon;
+        var delta = _MainCamera.ScreenToWorldPoint(point) - bow.FirePoint.position;
+        //Unit.BowController.Attack(delta.normalized * 10f);
+        bow.Vector = delta.normalized;
+        Owner.AttackController.PerformHit();
     }
 
     protected override void OnDestroy() {

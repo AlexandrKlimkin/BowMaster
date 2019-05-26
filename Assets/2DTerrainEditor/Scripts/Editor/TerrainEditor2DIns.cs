@@ -761,21 +761,21 @@ public class TerrainEditor2DIns: Editor
 
         _editMode = !_editMode;
 
-        if (_editMode)
-        {
-            if (_myTerrainEditor2D.Collider3DObj != null)
-                InternalEditorUtility.SetIsInspectorExpanded(_myTerrainEditor2D.Collider3DObj.GetComponent<MeshCollider>(), false);
-            if (_myTerrainEditor2D.GetComponent<EdgeCollider2D>())
-                InternalEditorUtility.SetIsInspectorExpanded(_myTerrainEditor2D.GetComponent<EdgeCollider2D>(), false);
-            if (_myTerrainEditor2D.GetComponent<PolygonCollider2D>())
-                InternalEditorUtility.SetIsInspectorExpanded(_myTerrainEditor2D.GetComponent<PolygonCollider2D>(), false);
-            _previousUsingTool = Tools.current;
-            Tools.current = Tool.None;
-        }
-        else
-        {
-            Tools.current = _previousUsingTool;
-        }
+        //if (_editMode)
+        //{
+        //    if (_myTerrainEditor2D.Collider3DObj != null)
+        //        InternalEditorUtility.SetIsInspectorExpanded(_myTerrainEditor2D.Collider3DObj.GetComponent<MeshCollider>(), false);
+        //    if (_myTerrainEditor2D.GetComponent<EdgeCollider2D>())
+        //        InternalEditorUtility.SetIsInspectorExpanded(_myTerrainEditor2D.GetComponent<EdgeCollider2D>(), false);
+        //    if (_myTerrainEditor2D.GetComponent<PolygonCollider2D>())
+        //        InternalEditorUtility.SetIsInspectorExpanded(_myTerrainEditor2D.GetComponent<PolygonCollider2D>(), false);
+        //    _previousUsingTool = Tools.current;
+        //    Tools.current = Tool.None;
+        //}
+        //else
+        //{
+        //    Tools.current = _previousUsingTool;
+        //}
     }
 
     void CheckTexture(Material mat)

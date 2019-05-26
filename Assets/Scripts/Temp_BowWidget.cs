@@ -73,6 +73,6 @@ public class Temp_BowWidget : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
 
     private void Fire(Vector2 vector)
     {
-        _AttackController.Attack(vector);
+        //_AttackController.Attack(vector);
     }
 }
