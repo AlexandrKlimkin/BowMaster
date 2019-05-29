@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 4859574463344439484, guid: c74a917b71b6e0b4fa1ee2df66529879,
         type: 3}
       propertyPath: m_Name
-      value: ArrowFire
+      value: ArrowFire Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6785516617644144520, guid: c74a917b71b6e0b4fa1ee2df66529879,
         type: 3}
@@ -66,6 +66,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6902233769295666651, guid: c74a917b71b6e0b4fa1ee2df66529879,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6902233769295666651, guid: c74a917b71b6e0b4fa1ee2df66529879,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6198295602396675026, guid: c74a917b71b6e0b4fa1ee2df66529879,
         type: 3}

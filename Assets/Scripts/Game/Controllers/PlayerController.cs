@@ -6,14 +6,16 @@ public class PlayerController : SingletonBehaviour<PlayerController>
 {
     public Unit Owner { get; private set; }
     public MovementController MovementController { get; private set; }
-    public BowController AttackController { get; private set; }
+    public AttackController AttackController { get; private set; }
+
+    public GameObject GameOverPanel;//ToDO REMOVE OUT OF HERE
 
     private Camera _MainCamera;
 
     protected override void Awake() {
         Owner = GetComponent<Unit>();
         MovementController = GetComponent<MovementController>();
-        AttackController = GetComponent<BowController>();
+        AttackController = GetComponent<AttackController>();
     }
 
     private void Start() {
@@ -42,5 +44,7 @@ public class PlayerController : SingletonBehaviour<PlayerController>
         base.OnDestroy();
         if(ScreenInputWidget.Instance)
             ScreenInputWidget.Instance.ClickEvent -= FireAtPoint;
+        GameOverPanel.SetActive(true);
+        Time.timeScale = 0f;
     }
 }

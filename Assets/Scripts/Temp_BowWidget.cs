@@ -10,7 +10,7 @@ public class Temp_BowWidget : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
     public Transform Target;
     public LineRenderer Line;
     public RectTransform BoundsTransform;
-    private BowController _AttackController;
+    private AttackController _AttackController;
 
     private Camera _MainCamera;
     private bool _Dragging;
@@ -25,10 +25,13 @@ public class Temp_BowWidget : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
 
     private void Update()
     {
-        if (!_Dragging)
-            FollowTarget(transform);
-        FollowTarget(BoundsTransform);
-        DrawLine();
+        if (PlayerController.Instance)
+        {
+            if (!_Dragging)
+                FollowTarget(transform);
+            FollowTarget(BoundsTransform);
+            DrawLine();
+        }
     }
 
     private void FollowTarget(Transform tr)
@@ -73,6 +76,8 @@ public class Temp_BowWidget : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
 
     private void Fire(Vector2 vector)
     {
-        //_AttackController.Attack(vector);
+        var weapon = (RangeWeapon)_AttackController.Weapon;
+        weapon.Vector = vector;
+        _AttackController.PerformHit();
     }
 }

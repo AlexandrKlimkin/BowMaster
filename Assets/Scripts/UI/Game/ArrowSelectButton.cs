@@ -18,8 +18,11 @@ public class ArrowSelectButton : MonoBehaviour, ISelectedElement {
     }
 
     private void Update() {
-        var bow = (RangeWeapon)PlayerController.Instance.Owner.AttackController.Weapon;
-        CDImage.fillAmount = bow.Arrows[Index].NormalizedCD;
+        if (PlayerController.Instance)
+        {
+            var bow = (RangeWeapon) PlayerController.Instance.Owner.AttackController.Weapon;
+            CDImage.fillAmount = bow.Arrows[Index].NormalizedCD;
+        }
     }
 
     private void SelectArrow() {

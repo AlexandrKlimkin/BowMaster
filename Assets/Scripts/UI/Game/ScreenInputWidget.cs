@@ -68,7 +68,6 @@ public class ScreenInputWidget : SingletonBehaviour<ScreenInputWidget>, IPointer
     }
 
     public void OnPointerClick(PointerEventData eventData) {
-        if (ClickEvent != null)
-            ClickEvent(eventData.position);
+        ClickEvent?.Invoke(eventData.position);
     }
 }

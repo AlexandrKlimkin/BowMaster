@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SimpleEnemySpawner_TMP : MonoBehaviour {
-    public float TimerPeriod = 5f;
+    public float TimerPeriod = 8f;
     public GameObject UnitPrefab;
 
     private float _Timer;
